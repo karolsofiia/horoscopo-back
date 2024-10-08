@@ -2,7 +2,7 @@ const express = require('express');
 const { urlencoded, json } = require('express');
 const cors = require('cors');
 const signosRouter = require('./routes/signos.routes.js');
-const authRouter = require('./routes/auth.routes.js'); // Rutas de autenticación
+
 
 const app = express();
 
