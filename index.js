@@ -11,7 +11,7 @@ app.use(json());
 app.use(cors());
 
 app.get('/', async (req,res) => {
-    res.send("Hola soy el back del horoscopo de Nico");
+    res.send("Hola soy el back del horoscopo de karolkarlitaynicog");
 });
 
 app.use('/v1/signos', signosRouter);
