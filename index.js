@@ -1,22 +1,22 @@
 const express = require('express');
 const { urlencoded, json } = require('express');
-const router = require('./routes/signos.routes.js');
-const authRouter = require('./routes/auth.routes.js'); // Importa el router de autenticación
 const cors = require('cors');
+const signosRouter = require('./routes/signos.routes.js');
+const authRouter = require('./routes/auth.routes.js'); // Rutas de autenticación
 
 const app = express();
 
 app.use(urlencoded({ extended: true }));
 app.use(json());
-
 app.use(cors());
 
-// Rutas existentes
-app.use('/v1/signos', router);
+app.get('/', async (req,res) => {
+    res.send("Hola soy el back del horoscopo de Nico");
+});
 
-// Nueva ruta de autenticación
-app.use('/v1/auth', authRouter);
+app.use('/v1/signos', signosRouter);
+app.use('/v1/auth', authRouter); // Utilizar las rutas de autenticación
 
 app.listen(4000, () => {
-    console.log('Listening at port 4000');
+    console.log('listening at port 4000');
 });
